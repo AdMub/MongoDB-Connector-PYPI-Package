@@ -1,35 +1,14 @@
 from setuptools import setup, find_packages
 from typing import List
 
-HYPHEN_E_DOT = '-e .'
-def get_requirement(file_path:str)->List[str]:
-    requirements = []
-    with open(file_path) as f:
-        requirements = f.readlines()
-        requirements = [req.replace("\n", "") for req in requirements]
-
-    if HYPHEN_E_DOT in requirements:
-        requirements.remove(HYPHEN_E_DOT)
-    return requirements
-
-
 with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()     
    
 
-__version__ = "0.0.1"  # you can start from 0.0.1
-
-# The actual GitHub repository name (not the folder inside it)
+__version__ = "0.0.1"
 REPO_NAME = "mongodbconnectorpkg"
-
-# The Python package name (must match the folder in src/)
-# In your case, check inside "src" — if your package folder is "mongodb_connect", then:
-PKG_NAME = "mongodb_connect"
-
-# Your GitHub username
+PKG_NAME= "mongodb_connect"
 AUTHOR_USER_NAME = "AdMub"
-
-# Your email (preferably the one linked to GitHub)
 AUTHOR_EMAIL = "admub465@gmail.com"
 
 setup(
@@ -46,7 +25,6 @@ setup(
     },
     package_dir={"": "src"},
     packages=find_packages(where="src"),
-    install_requires = get_requirement("./requirements_dev.txt")
     )
 
 
